@@ -11,10 +11,14 @@ To Include in your mission:
       fadeOut = 0;
       movingEnable = false;
       enableSimulation = true;
-
       onLoad = "uiNamespace setVariable ['RscUAVDisp',_this select 0]";
     };
   };
-3)In your mission initPlayerLocal.sqf add:
-  [] ExecVm "Scripts\UAV\Fnc_LoadFnc_UAV.sqf";
-  player addaction ["UAV calldown", Fnc_UAV_Init, [], -100, false, true]; 
+3)In your mission initPlayerLocal.sqf append:
+  [] spawn{
+    private _SHD = [] ExecVm "Scripts\UAV\Fnc_LoadFnc_UAV.sqf";
+    waitUntil{ScriptDone _SHD};
+    player addaction ["UAV calldown", Fnc_UAV_Init, [], -100, false, true]; 
+  };
+
+Scirpt tested and working on v1.90
