@@ -296,7 +296,7 @@ G_UAV_Transparency = 0.3;
 G_UAV_HUDcolor = [1,1,1];
 
 G_UAV_GuidedMissile = "Missile_AGM_02_F";//CUP_M_AGM_114K_Hellfire_II_AT
-G_UAV_UnguidedMissile = "CUP_R_TBG7V_AT";//CUP_R_TBG7V_AT
+G_UAV_UnguidedMissile = "M_RPG32_F";//CUP_R_TBG7V_AT
 
 G_UAV_FlirMode = "OFF";
 G_UAV_NV = "OFF";
