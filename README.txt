@@ -16,7 +16,7 @@ To Include in your mission:
   };
 3)In your mission initPlayerLocal.sqf append:
   [] spawn{
-    private _SHD = [] ExecVm "Scripts\UAV\Fnc_LoadFnc_UAV.sqf";
+    private _SHD = [] ExecVm "Fnc_LoadFnc_UAV.sqf";
     waitUntil{ScriptDone _SHD};
     player addaction ["UAV calldown", Fnc_UAV_Init, [], -100, false, true]; 
   };
