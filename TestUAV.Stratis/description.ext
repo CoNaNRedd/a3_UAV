@@ -1,0 +1,51 @@
+respawn = 3;
+respawndelay = 60;
+respawnVehicleDelay = 3;
+respawnDialog	= 0;
+respawnOnStart	= 0;
+disabledAI = true;
+allowFunctionsLog = 0;
+enableDebugConsole = 2;
+
+respawnTemplates[] = {"Base"};
+
+showHUD[] = {
+	true,	// Scripted HUD (same as showHUD command)
+	true,	// Vehicle + soldier info
+	true,	// Vehicle radar [HIDDEN]
+	true,	// Vehicle compass [HIDDEN]
+	true,	// Tank direction indicator
+	true,	// Commanding menu
+	true,	// Group Bar
+	true,	// HUD Weapon Cursors
+	true	// HUD Squad Radar
+};
+showGPS = 1;
+
+onLoadMission = arma 3 missions;
+joinUnassigned = 0;
+class Header{
+  gameType = COOP;
+  minPlayers = 1;
+  maxPlayers = 12;
+};
+
+
+class RscTitles {
+  class Default {
+    idd = -1;
+    fadein = 0;
+    fadeout = 0;
+    duration = 0;
+  };
+  class RscUAVDisp{
+    idd = 6969;
+    access = 0;
+    duration = 1e+011;
+    fadeIn = 0;
+    fadeOut = 0;
+    movingEnable = false;
+    enableSimulation = true;
+    onLoad = "uiNamespace setVariable ['RscUAVDisp',_this select 0]";
+  };
+};
