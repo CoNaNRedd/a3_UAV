@@ -255,7 +255,7 @@ if(_Button == 1) then{//right click
 }];
 
 };
-Fnc_GetUpAndDirRel = {//call
+Fnc_UAV_GetUpAndDirRel = {//call
 params["_dx", "_dy", "_VDir", "_VUp"];
 
 _Yaw = (_VDir select 0) atan2 (_VDir select 1);
