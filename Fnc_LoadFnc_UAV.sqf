@@ -6,7 +6,7 @@ params["_Disp", "_dx", "_dy"];
 _dx = _dx/G_UAV_CamSensitivity;
 _dy = _dy/G_UAV_CamSensitivity;
 
-_aTmp = [_dx, _dy, (vectorDir G_UAV_Cam), (vectorUp  G_UAV_Cam)] call Fnc_GetUpAndDirRel;
+_aTmp = [_dx, _dy, (vectorDir G_UAV_Cam), (vectorUp  G_UAV_Cam)] call Fnc_UAV_GetUpAndDirRel;
 _VDir = _aTmp select 0;
 _VUp  = _aTmp select 1;
 
@@ -27,7 +27,7 @@ params["_Disp", "_dx", "_dy"];
 _dx = _dx/250;
 _dy = _dy/300;
 
-_aTmp = [_dx, _dy, (vectorDir G_UAV_Missile), (vectorUp  G_UAV_Missile)] call Fnc_GetUpAndDirRel;
+_aTmp = [_dx, _dy, (vectorDir G_UAV_Missile), (vectorUp  G_UAV_Missile)] call Fnc_UAV_GetUpAndDirRel;
 G_UAV_Missile setVectorDirAndUp[(_aTmp select 0), (_aTmp select 1)];
 }];
 
@@ -857,8 +857,6 @@ G_UAV_LockInitTime = nil;
 G_UAV_Missile = nil;
 G_UAV_Missilecam = nil;
 G_UAV_CtrlMissileID = nil;
-
-[] spawn Fnc_AddClientCustomKeys;
 };
 };
 
@@ -999,7 +997,7 @@ G_UAV_Missilecam camSetFOV 0.50;
 G_UAV_Missilecam camSetTarget G_UAV_Missile;
 G_UAV_Missilecam camCommit 0;
 G_UAV_Missilecam attachTo [G_UAV_Missile, _Offset];
-if([] call Fnc_bIsDay) then{ camUseNVG false; } else{ camUseNVG true; };
+if((daytime > 6.5) && (daytime < 18.5)) then{ camUseNVG false; } else{ camUseNVG true; };
 
 [] call Fnc_UAV_SetMissileCtrl;
 
